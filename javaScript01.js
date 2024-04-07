@@ -395,6 +395,67 @@ boundBreadFunctionArrow(); // 출력: 🥖 undefined 빵이 구워졌습니다. 
 // 조건문
 // 주어진 조건의 참/거짓에 따라 서로 다른 코드 블록을 실행하도록 하는 구문입니다. 예를 들어 if, else, else if, switch 등이 여기에 속합니다.
 
+// switch 를 if 문으로 변환
+const fruit1 = 'apple';
+
+if (fruit1 === 'apple') {
+    console.log('Apple!'); // 'Apple!' 출력
+} else if (fruit1 === 'banana') {
+    console.log('Banana!');
+} else {
+    console.log('Unknown fruit1');
+}
+
+// if 문 예제
+// 주어진 조건이 참일 때 특정 코드 블록을 실행하는 조건문입니다.
+let fruits2 = ['apple', 'banana', 'orange'];
+if (fruits2.includes('banana')) {
+  console.log("바나나가 포함되어 있습니다.");
+}
+
+// else 문 예제
+// if 조건이 거짓일 때 실행할 코드 블록을 지정하는 추가적인 조건문입니다.
+let weather = {
+  temperature: 28,
+  isSunny: true
+};
+if (weather.isSunny) {
+  console.log("오늘 날씨는 맑습니다.");
+} else {
+  console.log("오늘은 흐린 날씨입니다.");
+}        
+
+// else if 문 예제
+//이전 if 문의 조건이 거짓이면, 새로운 조건을 검사하여 해당하는 경우 특정 코드 블록을 실행하는 조건문입니다.
+if (age >= 19) {
+  console.log("당신은 성인입니다.");
+} else if (age >= 13) {
+  console.log("당신은 청소년입니다.");
+} else {
+  console.log("당신은 어린이입니다.");
+}
+
+// switch 문 예제
+// 주어진 표현식의 값에 따라 여러 경우 중 하나를 선택하여 실행할 코드 블록을 지정하는 조건문입니다.
+let dayOfWeek = 'Monday';
+switch (dayOfWeek) {
+  case 'Monday':
+  case 'Tuesday':
+  case 'Wednesday':
+  case 'Thursday':
+  case 'Friday':
+    console.log("평일입니다.");
+    break;
+  case 'Saturday':
+    console.log("토요일입니다.");
+    break;
+  case 'Sunday':
+    console.log("일요일입니다.");
+    break;
+  default:
+    console.log("유효하지 않은 요일입니다.");
+}
+
 // 반복문
 // 같은 코드 블록을 조건에 따라 여러 번 반복해서 실행하도록 하는 구문입니다. 예를 들어 for, while, do...while 등이 있습니다.
 
@@ -464,63 +525,3 @@ switch (fruit) {
     console.log('Unknown fruit');
 }
 
-// switch 를 if 문으로 변환
-const fruit1 = 'apple';
-
-if (fruit1 === 'apple') {
-    console.log('Apple!'); // 'Apple!' 출력
-} else if (fruit1 === 'banana') {
-    console.log('Banana!');
-} else {
-    console.log('Unknown fruit1');
-}
-
-// if 문 예제
-// 주어진 조건이 참일 때 특정 코드 블록을 실행하는 조건문입니다.
-let fruits2 = ['apple', 'banana', 'orange'];
-if (fruits2.includes('banana')) {
-  console.log("바나나가 포함되어 있습니다.");
-}
-
-// else 문 예제
-// if 조건이 거짓일 때 실행할 코드 블록을 지정하는 추가적인 조건문입니다.
-let weather = {
-  temperature: 28,
-  isSunny: true
-};
-if (weather.isSunny) {
-  console.log("오늘 날씨는 맑습니다.");
-} else {
-  console.log("오늘은 흐린 날씨입니다.");
-}        
-
-// else if 문 예제
-//이전 if 문의 조건이 거짓이면, 새로운 조건을 검사하여 해당하는 경우 특정 코드 블록을 실행하는 조건문입니다.
-if (age >= 19) {
-  console.log("당신은 성인입니다.");
-} else if (age >= 13) {
-  console.log("당신은 청소년입니다.");
-} else {
-  console.log("당신은 어린이입니다.");
-}
-
-// switch 문 예제
-// 주어진 표현식의 값에 따라 여러 경우 중 하나를 선택하여 실행할 코드 블록을 지정하는 조건문입니다.
-let dayOfWeek = 'Monday';
-switch (dayOfWeek) {
-  case 'Monday':
-  case 'Tuesday':
-  case 'Wednesday':
-  case 'Thursday':
-  case 'Friday':
-    console.log("평일입니다.");
-    break;
-  case 'Saturday':
-    console.log("토요일입니다.");
-    break;
-  case 'Sunday':
-    console.log("일요일입니다.");
-    break;
-  default:
-    console.log("유효하지 않은 요일입니다.");
-}
