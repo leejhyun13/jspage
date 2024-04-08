@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Placeholder 입력 후 엔터 클릭 시 초기화</title>
+</head>
+<body>
+
+<input type="text" id="inputField" placeholder="값을 입력하세요" onkeypress="handleKeyPress(event)">
+
+<script>
+function handleKeyPress(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // 엔터키 기본 동작 방지
+        let inputField = document.getElementById("inputField");
+        console.log(inputField.value);
+        inputField.value = ""; // 입력 필드 초기화
+        console.log(inputField.value); // 확인을 위한 콘솔 출력
+    }
+}
+</script>
+
+</body>
+</html>

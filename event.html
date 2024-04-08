@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>practice-event</title>
+  <style>
+    body {display: flex; flex-direction: column; gap: 24px;}
+    div {margin: 8px 0; padding: 8px;border: 1px solid #ccc;border-radius: 4px;}
+  </style>
+</head>
+<body>
+
+  <div>
+    <h3>Click Event</h3>
+    <button id="myButton">Click Me</button>
+  </div>
+
+  <div>
+    <h3>Mouse Event</h3>
+    <div id="myDiv" style="width: 200px; height: 40px; background-color: lightblue;">Mouse over me</div>
+  </div>
+
+  <div>
+    <h3>Keyboard Event</h3>
+    <input type="text" id="myInput" placeholder="Press Enter">
+  </div>
+
+  <div>
+    <h3>Focus Event</h3>
+    <input type="text" id="focusInput" placeholder="Focus here">
+  </div>
+
+  <div>
+    <h3>Form Event</h3>
+    <form id="myForm">
+      <input type="text" name="username" placeholder="Username">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div>
+    <h3>Keyboard: keydown and keyup</h3>
+    <input type="text" id="keyboardInput" placeholder="Type something">
+  </div>
+
+  <div>
+    <h3>Touch Event</h3>
+    <div id="myTouchArea" style="width: 200px; height: 40px; background-color: lightblue;">Touch Me</div>
+  </div>
+
+  <div>
+    <h3>Mouse & Pointer Events</h3>
+    <div id="mousePointerDiv" style="width: 200px; height: 100px; background-color: lightblue;">Mouse over or touch me</div>
+  </div>
+
+  <script>
+  document.getElementById("myButton").addEventListener("click", function(){
+    console.log("Click Event");
+  });
+
+  document.getElementById("myDiv").addEventListener("mouseout", function(){
+    console.log("mouseover Event");
+  });
+
+  
+
+  document.getElementById("myInput").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    let anText_sub1 = document.getElementById('myInput');
+    console.log(anText_sub1.value);
+    anText_sub1.value = "";   
+  }
+});
+
+  document.getElementById("focusInput").addEventListener("keydown", function() {
+    this.style.backgroundColor = "#0000ff";
+    this.style.color = "#fff";
+  });
+  document.getElementById("focusInput").addEventListener("blur", function() {
+    this.style.backgroundColor = "white";
+  });
+  document.getElementById("focusInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      let enterText = document.getElementById("focusInput");
+      console.log(enterText.value);
+      enterText.value = "";
+      this.style.backgroundColor = "white";
+    }
+  });
+
+  //form event
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var username = this.elements["username"].value;
+    console.log("Form submitted by: " + username);
+    this.elements["username"].value = ''; // 입력 필드의 값을 비웁니다.
+  });
+
+  // Keyboard: keydown and keyup
+  document.getElementById("keyboardInput").addEventListener("keydown", function(event) {
+    console.log("Key down: " + event.key);
+  });
+
+  document.getElementById("keyboardInput").addEventListener("keyup", function(event) {
+    console.log("Key up: " + event.key);
+  });
+
+  // Touch Event
+  document.getElementById("myTouchArea").addEventListener("touchstart", function(event) {
+    console.log("Touch started!");
+  });
+  document.getElementById("myTouchArea").addEventListener("touchend", function(event) {
+    console.log("Touch ended!");
+  });
+
+  // Mouse & Pointer Events
+  document.getElementById("mousePointerDiv").addEventListener("pointerover", function() {
+    this.style.backgroundColor = "lightgreen";
+    console.log("Pointer over");
+  });
+  
+
+  document.getElementById("mousePointerDiv").addEventListener("pointerout", function() {
+    this.style.backgroundColor = "lightblue";
+    console.log("Pointer out");
+  });
+
+  // 요소에 마우스가 들어왔을 때
+document.getElementById("mousePointerDiv").addEventListener("mouseenter", function() {
+    // setInterval() 함수를 사용하여 1초마다 콘솔에 "Pointer over" 출력
+    // 이때 setInterval() 함수는 식별하기 위한 타이머 ID를 반환함
+    this.timerId = setInterval(function() {
+        console.log("Pointer over");
+    }, 1000);
+});
+
+// 요소에서 마우스가 나갔을 때
+document.getElementById("mousePointerDiv").addEventListener("mouseleave", function() {
+    // 타이머가 있으면 clearInterval() 함수를 사용하여 타이머 중지
+    if (this.timerId) {
+        clearInterval(this.timerId);
+        this.timerId = null; // 타이머 ID 초기화
+    }
+});
+  
+
+  </script>
+  
+</body>
+</html>

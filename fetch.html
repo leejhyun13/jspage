@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form id="myForm">
+    <input type="text" name="textField" placeholder="Enter Text">
+    <input type="checkbox" name="checkBox">
+    <input type="radio" name="radioButton" value="Option1">Option 1
+    <input type="radio" name="radioButton" value="Option2">Option 2
+    <button type="button" id="submitForm">Submit</button>
+    <button type="button" id="resetForm">Reset</button>
+</form>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    
+    let myform = document.getElementById("myForm");
+    let resetForm = document.getElementById('resetForm');
+
+    myForm.addEventListener("change", function () {
+      console.log('Changge : ', event.targer);
+    })
+    myForm.addEventListener("input", function(event) {
+      console.log('Input : ', event.target);
+    })
+    myForm.addEventListener("cut", function(event) {
+      console.log('Cut : ', event.target);
+    })
+    myForm.addEventListener("paste", function(event) {
+      console.log('Paste : ', event.target);
+    })
+    myForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      console.log('Form Submitted!', 'Form Data:', new FormData(myForm));
+    })
+    myForm.addEventListener("copy", function(event) {
+      console.log('Copy : ', event.target);
+    })
+    resetForm.addEventListener('click', function(event) {
+      myForm.reset();
+    })
+    
+    document.getElementById('submitForm');
+
+    submitForm.addEventListener('click', function(event) {
+      let formData = new FormData(myForm);
+      let jsonObject = {};
+      for (const [key, value] of formData.entries()) {
+        jsonObject[key] = value;
+        console.log(key, value);
+      }
+      console.log('jsonObject');
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method : 'POST',
+        header: {
+          'Content-Type': 'applications/json'
+        },
+        body: JSON.stringify(jsonObject)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data)
+        })
+      .catch(error => console.log(error));
+    });
+  })
+</script>
+</body>
+</html>
