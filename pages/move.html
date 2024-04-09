@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Move Shape with Arrow Keys</title>
+<style>
+    canvas {
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="600" height="700"></canvas>
+
+<script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let x = canvas.width / 2;
+    let y = canvas.height / 2;
+    const radius = 10;
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function moveShape(event) {
+        switch(event.keyCode) {
+            case 37: // left arrow
+                x -= 10;
+                break;
+            case 38: // up arrow
+                y -= 10;
+                break;
+            case 39: // right arrow
+                x += 10;
+                break;
+            case 40: // down arrow
+                y += 10;
+                break;
+        }
+        draw();
+    }
+
+    document.addEventListener("keydown", moveShape);
+
+    draw(); // 초기 도형 그리기
+</script>
+
+</body>
+</html>

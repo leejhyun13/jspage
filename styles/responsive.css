@@ -1,0 +1,117 @@
+@import '../styles/reset.css';
+
+body {
+  overflow: auto;
+}
+
+header {
+  background: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 32px;
+  max-width: 1300px;
+  border: 1px solid #333;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+header ul {
+  display: flex;
+  gap: 10px;
+}
+
+header ul li a:hover {
+  color: red;
+}
+
+#main {
+  display: flex;
+  width: 22px;
+  height: 22px;
+}
+
+#hamburger {
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+
+#closeMenu {
+  display: none;
+}
+
+.carousel {
+  max-width: 1300px;
+  height: 450px;
+  border: 1px solid #333;
+  margin-top: 60px;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 100px 0px;
+  margin: 3px 0px;
+  max-width: 1300px;
+}
+
+main div {
+  width: 260px;
+  height: 300px;
+  display: grid;
+  place-content: center;
+  font-size: 2rem;
+  border: 1px solid #333;
+}
+
+@media (max-width: 1400px) {
+  header {
+    max-width: 1400px;
+  }
+}
+
+@media (max-width: 960px) {
+  body {
+    overflow: auto;
+  }
+}
+
+@media (max-width: 490px) {
+  header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+  }
+
+  main {
+    margin: 56px 0px;
+  }
+
+  header ul {
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #ccc;
+    width: 100%;
+    place-items: center;
+    height: 100vh;
+  }
+
+  #hamburger {
+    display: flex;
+  }
+
+  #closeMenu {
+    display: flex;
+  }
+}
