@@ -25,9 +25,9 @@ const number = 0;
 
 if (number > 10) {
   console.log("크다");
-}else if (number < 10){
+} else if (number < 10) {
   console.log("작다");
-}else {
+} else {
   console.log("같다");
 }
 

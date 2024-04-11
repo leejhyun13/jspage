@@ -11,7 +11,7 @@ header {
   justify-content: space-between;
   padding: 16px 32px;
   max-width: 1300px;
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
   position: fixed;
   top: 0;
   z-index: 2;
@@ -24,6 +24,12 @@ header ul {
 
 header ul li a:hover {
   color: red;
+}
+
+.search-box {
+  display: flex;
+  border: 3px #333;
+  justify-content: first baseline;
 }
 
 #main {
