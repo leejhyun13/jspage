@@ -9,7 +9,7 @@ const fs = require('fs'); // nodeJs 파일 시스템에 접근
 
 app.get('/', (req, res) => {
   // res.send('Hello World!')
-  res.sendFile(path.join(__dirname, './pages/index.html'));
+  res.sendFile(path.join(__dirname, './dist/index.html'));
 })
 
 app.use(express.static(__dirname));
